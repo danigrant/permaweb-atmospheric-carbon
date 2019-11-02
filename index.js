@@ -55,8 +55,10 @@ async function pushToArweave() {
 
 
   // tag the transaction so it can be found later
+  // tag is: daily_co2_measurement, YYYY-MM-DD (developers can use date pull today's)
   // TODO: later change this to something else to discern test from prod
-  transaction.addTag('dani_project_test', 'dailyco2ppm_test')
+
+  transaction.addTag('dani_project_test', getDate())
 
   // sign the transaction
   await arweave.transactions.sign(transaction, key);
@@ -68,4 +70,9 @@ async function pushToArweave() {
   let transactionId = JSON.parse(response.config.data)["id"]
   console.log(response.status, response.data, `https://arweave.net/${transactionId}`);
   return transactionId
+}
+
+let getDate = () => {
+  let date = new Date()
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 }

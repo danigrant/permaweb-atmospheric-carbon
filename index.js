@@ -47,12 +47,12 @@ async function pushToArweave() {
   // read file from fs
   let  file = fs.readFileSync('co2_ppm.txt', 'utf8');
 
-  console.log(`file: ${file}`);
-
   // create transaction
   let transaction = await arweave.createTransaction({
     data: Buffer.from(file, 'utf8')
   }, key);
+
+  console.log(transaction);
 
 
   // tag the transaction so it can be found later

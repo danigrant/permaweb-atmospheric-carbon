@@ -20,14 +20,14 @@ const arweave = Arweave.init({
   protocol: 'https'
 });
 
-void async function main() {
+async function main() {
   // get the file from NOAA
   await fetchFromFTP()
 
   // push it to the arweave network
-  pushToArweave()
+  await pushToArweave()
 
-}()
+}
 
 async function fetchFromFTP() {
   let ftp = new Client();
@@ -56,9 +56,7 @@ async function pushToArweave() {
 
   // tag the transaction so it can be found later
   // tag is: daily_co2_measurement, YYYY-MM-DD (developers can use date pull today's)
-  // TODO: later change this to something else to discern test from prod
-
-  transaction.addTag('dani_project_test', getDate())
+  transaction.addTag('daily_co2_measurement_test', getDate())
 
   // sign the transaction
   await arweave.transactions.sign(transaction, key);
@@ -74,5 +72,7 @@ async function pushToArweave() {
 
 let getDate = () => {
   let date = new Date()
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${('0' + date.getDate()).slice(-2)}`
 }
+
+module.exports.run = main

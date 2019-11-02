@@ -1,0 +1,28 @@
+{
+  "name": "permaweb-co2-ppm",
+  "version": "1.0.0",
+  "description": "Archives the daily CO2 ppm measurement from NOAA ESRL to the Arweave network",
+  "main": "index.js",
+  "dependencies": {
+    "arweave": "^1.5.3",
+    "express": "^4.17.1",
+    "ftp": "^0.3.10",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danigrant/permaweb-co2-ppm-measurements.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danigrant/permaweb-co2-ppm-measurements/issues"
+  },
+  "homepage": "https://github.com/danigrant/permaweb-co2-ppm-measurements#readme"
+}

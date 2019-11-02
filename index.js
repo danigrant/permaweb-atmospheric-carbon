@@ -21,7 +21,6 @@ const arweave = Arweave.init({
 });
 
 async function main() {
-  console.log(key);
   // get the file from NOAA
   await fetchFromFTP()
 
@@ -47,6 +46,8 @@ async function fetchFromFTP() {
 async function pushToArweave() {
   // read file from fs
   let  file = fs.readFileSync('co2_ppm.txt', 'utf8');
+
+  console.log(`file: ${file}`);
 
   // create transaction
   let transaction = await arweave.createTransaction({

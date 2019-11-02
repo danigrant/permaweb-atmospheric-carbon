@@ -21,12 +21,12 @@ const arweave = Arweave.init({
 });
 
 async function main() {
+  console.log(key);
   // get the file from NOAA
   await fetchFromFTP()
 
   // push it to the arweave network
   await pushToArweave()
-
 }
 
 async function fetchFromFTP() {

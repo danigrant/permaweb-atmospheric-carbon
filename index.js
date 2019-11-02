@@ -8,7 +8,7 @@
 
 const fetch = require('node-fetch')
 const Arweave = require('arweave/node');
-const key = require('./arweave-wallet.json')
+const key = process.ENV.ARWEAVE_KEY || require('./arweave-wallet.json')
 const Client = require('ftp');
 const fs = require('fs');
 

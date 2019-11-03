@@ -48,27 +48,24 @@ async function pushToArweave() {
   let  file = fs.readFileSync('co2_ppm.txt', 'utf8');
 
   // create transaction
-  let transaction = await arweave.createTransaction({
-    data: Buffer.from(file, 'utf8')
-  }, key);
-
-  console.log(transaction);
-
-
-  // tag the transaction so it can be found later
-  // tag is: daily_co2_measurement, YYYY-MM-DD (developers can use date pull today's)
-  transaction.addTag('daily_co2_measurement_test', getDate())
-
-  // sign the transaction
-  await arweave.transactions.sign(transaction, key);
-
-  // then send it to arweave
-  const response = await arweave.transactions.post(transaction);
-
-  // return transaction id. data will be hosted at arweave.net/transaction-id
-  let transactionId = JSON.parse(response.config.data)["id"]
-  console.log(response.status, response.data, `https://arweave.net/${transactionId}`);
-  return transactionId
+  // let transaction = await arweave.createTransaction({
+  //   data: Buffer.from(file, 'utf8')
+  // }, key);
+  //
+  // // tag the transaction so it can be found later
+  // // tag is: daily_co2_measurement, YYYY-MM-DD (developers can use date pull today's)
+  // transaction.addTag('daily_co2_measurement_test', getDate())
+  //
+  // // sign the transaction
+  // await arweave.transactions.sign(transaction, key);
+  //
+  // // then send it to arweave
+  // const response = await arweave.transactions.post(transaction);
+  //
+  // // return transaction id. data will be hosted at arweave.net/transaction-id
+  // let transactionId = JSON.parse(response.config.data)["id"]
+  // console.log(response.status, response.data, `https://arweave.net/${transactionId}`);
+  // return transactionId
 }
 
 let getDate = () => {

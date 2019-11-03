@@ -50,8 +50,8 @@ async function pushToArweave() {
   // create transaction
   let transaction = await arweave.createTransaction({
     data: Buffer.from(file, 'utf8')
-  }, key);
-  
+  }, process.env.ARWEAVE_KEY);
+
   // // tag the transaction so it can be found later
   // // tag is: daily_co2_measurement, YYYY-MM-DD (developers can use date pull today's)
   // transaction.addTag('daily_co2_measurement_test', getDate())

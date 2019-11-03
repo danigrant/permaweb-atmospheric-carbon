@@ -12,4 +12,4 @@ All archived NOAA ESRL measurements are tagged with the key: `daily_co2_measurem
 The files are all txt files. [Displayed in a browser](https://as6vxxg4nrdw.arweave.net/8O-Vz0_VLFQaBcceufWAJ6J9vRR_5_jvJvidypHgNd0) they are a total mess (!) but when you [view source or download the files](view-source:https://as6vxxg4nrdw.arweave.net/8O-Vz0_VLFQaBcceufWAJ6J9vRR_5_jvJvidypHgNd0.txt) they are formatted as NOAA ESRL publishes them.
 
 ## Developer Note
-To run this locally, you will need a `ARWEAVE_KEY` environment variable with the JSON Arweave wallet keyfile. To obtain an Arweave wallet keyfile, [follow this guide](https://docs.arweave.org/info/wallets/arweave-web-extension-wallet).
+To run this locally, you will need a `arweave-wallet.json` file with your Arweave wallet keyfile in it. To obtain an Arweave wallet keyfile, [follow this guide](https://docs.arweave.org/info/wallets/arweave-web-extension-wallet).

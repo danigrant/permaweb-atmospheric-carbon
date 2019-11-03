@@ -8,9 +8,11 @@
 
 const fetch = require('node-fetch')
 const Arweave = require('arweave/node');
-const key = process.env.ARWEAVE_KEY || require('./arweave-wallet.json')
+const key = process.env.ARWEAVE_KEY
 const Client = require('ftp');
 const fs = require('fs');
+
+console.log(process.env.ARWEAVE_KEY);
 
 
 // init Arweave
@@ -44,12 +46,11 @@ async function fetchFromFTP() {
 }
 
 async function pushToArweave() {
-  // read file from fs
   let  file = fs.readFileSync('co2_ppm.txt', 'utf8');
 
   let buffer = Buffer.from(file, 'utf8')
 
-  console.log(buffer)
+  console.log(buffer) // logs <Buffer 23 20 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d 2d ... 149381 more bytes>
 
   // create transaction
   let transaction = await arweave.createTransaction({
